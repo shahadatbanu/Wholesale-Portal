@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./src/routes/authRoutes.js");
+const productRoutes = require("./src/routes/productRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -29,6 +30,7 @@ const connectDB = async () => {
 };
 
 // Routes
+app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 
 // Root Route
