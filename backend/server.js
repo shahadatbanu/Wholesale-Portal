@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./src/routes/authRoutes.js");
 const productRoutes = require("./src/routes/productRoutes");
+const adminRoutes = require("./src/routes/adminRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -32,7 +33,7 @@ const connectDB = async () => {
 // Routes
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
-
+app.use("/api/admin", adminRoutes);
 // Root Route
 app.get("/", (req, res) => {
   res.send("API is running...");
