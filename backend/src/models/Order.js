@@ -1,6 +1,6 @@
+const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema(
     {
-      order_id: { type: String, required: true, unique: true },
       customer: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }, // Reference to retailer
       items: [
         {
