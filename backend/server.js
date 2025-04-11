@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./src/routes/authRoutes.js");
 const productRoutes = require("./src/routes/productRoutes");
 const adminRoutes = require("./src/routes/adminRoutes");
+const orderRoutes = require("./src/routes/orderRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -34,6 +35,7 @@ const connectDB = async () => {
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/orders", orderRoutes);
 // Root Route
 app.get("/", (req, res) => {
   res.send("API is running...");
