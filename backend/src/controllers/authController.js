@@ -1,5 +1,6 @@
 
 const User = require("../models/User.js");
+const sendLoginEmail=require("../utils/sendLoginEmail.js");
 const registerUser = async (req, res) => {
   const { name, email, password, role } = req.body;
 
@@ -12,7 +13,7 @@ const registerUser = async (req, res) => {
 
     // Create new user
     const user = await User.create({ name, email, password, role });
-
+    await sendLoginEmail(email, password);
     if (user) {
      return res.status(201).json({
         _id: user.id,
